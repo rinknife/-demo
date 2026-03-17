@@ -130,7 +130,7 @@ def execute_function_call(function_name, arguments):
     else:
         return json.dumps({"error": "未知函数"})
 
-# ====================== 构建商品摘要（你漏掉的函数） ======================
+# ====================== 构建商品摘要 ======================
 def build_product_summary(products_dict=None):
     """构建商品摘要，如果传入了products_dict就用传入的，否则用全部商品"""
     if products_dict is None:
@@ -143,7 +143,7 @@ def build_product_summary(products_dict=None):
 
 
 
-# ====================== Agent 核心（保留你的提示词，但用函数获取数据） ======================
+# ====================== Agent 核心 ======================
 def agent_chat(user_message, chat_history):
     """
     Agent风格：大模型决定调用哪个函数获取数据，然后用你的提示词格式推荐
@@ -213,7 +213,7 @@ def agent_chat(user_message, chat_history):
         print(f"Function calling error: {e}")
         product_summary = build_product_summary()
     
-    # ====================== 完全保留你的提示词 ======================
+    # ====================== 完全保留提示词 ======================
     system_prompt = f"""
 你是一个智能购物 Agent。
 用户会随意输入购买需求。
